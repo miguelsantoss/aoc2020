@@ -1,8 +1,8 @@
+use std::fs::File;
 use std::io::{prelude::*, BufReader};
-use std::{fs::File, io};
 
-fn main() -> io::Result<()> {
-    let f = File::open("../../input/day02").expect("file not found");
+pub fn day_02() {
+    let f = File::open("input/day02").expect("file not found");
     let reader = BufReader::new(f);
 
     let mut s1 = 0;
@@ -29,8 +29,8 @@ fn main() -> io::Result<()> {
             s1 = s1 + 1;
         }
 
-        let first = to_test.chars().nth(min - 1).map(|x| x == rule2).unwrap();
-        let last = to_test.chars().nth(max - 1).map(|x| x == rule2).unwrap();
+        let first = to_test.chars().nth(min - 1).unwrap() == rule2;
+        let last = to_test.chars().nth(max - 1).unwrap() == rule2;
 
         if first ^ last {
             s2 = s2 + 1;
@@ -39,6 +39,4 @@ fn main() -> io::Result<()> {
 
     println!("s1 = {}", s1);
     println!("s2 = {}", s2);
-
-    Ok(())
 }

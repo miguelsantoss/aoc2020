@@ -1,3 +1,24 @@
+mod day_01;
+mod day_02;
+mod day_03;
+
+use std::time::Instant;
+
+fn measure(day: &str, f: &dyn Fn()) {
+    let now = Instant::now();
+    f();
+    let elapsed = now.elapsed();
+    println!("day {}: {:.2?}", day, elapsed);
+    println!("------------------------------");
+}
+
 fn main() {
-    println!("Hello, world!");
+    let now = Instant::now();
+
+    measure("01", &day_01::day_01);
+    measure("02", &day_02::day_02);
+    measure("03", &day_03::day_03);
+
+    let elapsed = now.elapsed();
+    println!("total: {:.2?}", elapsed);
 }
