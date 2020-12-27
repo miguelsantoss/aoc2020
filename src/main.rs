@@ -2,6 +2,7 @@ mod day_01;
 mod day_02;
 mod day_03;
 mod day_04;
+mod day_05;
 
 use std::time::Instant;
 
@@ -20,6 +21,7 @@ fn main() {
     measure("02", &day_02::day_02);
     measure("03", &day_03::day_03);
     measure("04", &day_04::day_04);
+    measure("05", &day_05::day_05);
 
     let elapsed = now.elapsed();
     println!("total: {:.2?}", elapsed);
